@@ -33,6 +33,9 @@
     <div id="app">
       <center><img src="<%= htmlWebpackPlugin.files.publicPath %>img/icons/icon.png" id="loading"></center>
     </div>
+    <% if (false) { %>
+      <script>document.location.replace('./www/')</script>
+    <% } %>
     <script src="cordova.js"></script>
     <!-- Todo: only include in production -->
     <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
