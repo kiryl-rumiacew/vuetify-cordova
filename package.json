@@ -16,7 +16,8 @@
     "browser": "npm run build && cordova run browser",
     "ios": "npm run build && cordova run ios",
     "android": "npm run build && cordova run android --device",
-    "android-vm": "npm run build && cordova run android"
+    "android-vm": "npm run build && cordova run android",
+    "pack": "rm Archive.zip && zip -r Archive.zip config.xml www/"
   },
   "dependencies": {
     "cordova-android": "^7.0.0",

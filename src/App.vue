@@ -8,65 +8,32 @@
       app
     >
       <v-list>
-        <v-list-tile
-          value="true"
+        <v-list-tile 
           v-for="(item, i) in items"
           :key="i"
-          exact
-        >
-          <v-list-tile-action>
-            <v-icon light v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
+          @click="test()">
+          <v-icon >{{item.icon}}</v-icon>&nbsp;{{item.title}}
+        </v-list-tile>
+        <hr v-if="isCordovaReady">
+        <v-list-tile  
+          v-if="isCordovaReady" 
+          @click="exitApp()">
+          <v-icon >fas fa-sign-out-alt</v-icon>&nbsp;Exit
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar fixed app :clipped-left="clipped">
       <v-toolbar-side-icon @click.stop="drawer = !drawer" light></v-toolbar-side-icon>
-      <v-btn
-        icon
-        light
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        light
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        icon
-        light
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn>
-    </v-toolbar>
+      <!-- right menu-->
+      </v-toolbar>
     <v-content>
       <router-view></router-view>
+      <div v-for="(item, i) in items" :key="i">
+        <input v-model="items[i].title"><input v-model="items[i].icon"><br>
+      </div>
     </v-content>
-    <v-navigation-drawer
-      temporary
-      :right="right"
-      v-model="rightDrawer"
-      fixed
-    >
-      <v-list>
-        <v-list-tile @click="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
   </v-app>
 </template>
 
@@ -77,21 +44,33 @@
       return {
         cordova: Vue.cordova,
         clipped: false,
-        drawer: true,
-        items: [{
-          icon: 'bubble_chart',
-          title: 'Inspire'
-        }],
+        drawer: false,
+        items: [
+          {
+            icon: 'fas fa-home',
+            title: 'Home'
+          },
+          {
+            icon: 'fab fa-facebook-square',
+            title: 'Facebook Page'
+          },
+          {
+            icon: 'fab fa-pinterest-square',
+            title: 'Pinerest Page'
+          }
+        ],
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'Vuetify',
+        isCordovaReady: false
       }
     },
     created () {
       var self = this
       this.cordova.on('deviceready', () => {
         self.onDeviceReady()
+        self.isCordovaReady = true
       })
     },
     methods: {
@@ -100,7 +79,7 @@
         this.cordova.on('pause', this.onPause, false)
         this.cordova.on('resume', this.onResume, false)
         if (this.cordova.device.platform === 'Android') {
-          document.addEventListener('backbutton', this.onBackKeyDown, false)
+          document.addEventListener('backbutton', this.onBackButton, false)
         }
       },
       onPause () {
@@ -114,9 +93,16 @@
           console.log('resume')
         }, 0)
       },
-      onBackKeyDown () {
-        // Handle the back-button event on Android. By default it will exit the app.
+      onBackButton () {
+        // Handle the back-button event on Android.
+        this.exitApp()
+      },
+      exitApp () {
+        // By default it will exit the app.
         navigator.app.exitApp()
+      },
+      test () {
+        alert('Hello there!')
       }
     }
   }

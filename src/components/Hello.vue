@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-slide-y-transition mode="out-in">
       <v-layout column align-center>
-        <img src="../../static/img/icons/icon.png" alt="Vuetify" class="mb-5">
+        <img src="../assets/icon.png" alt="Vuetify1" class="mb-5">
         <blockquote>
           &#8220;First, solve the problem. Then, write the code.&#8221;
           <footer>
