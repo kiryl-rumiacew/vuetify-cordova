@@ -8,7 +8,7 @@
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
-    <icon src="img/v.png"/>
+    <icon src="img/icons/icon.png"/>
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
