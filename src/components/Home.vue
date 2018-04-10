@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid>
+  <v-container fluid style="border:1px solid green">
     <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
+      <v-layout column align-center  style="border:1px solid red">
         <img src="../assets/icon.png" alt="Vuetify1" class="mb-5">
         <div>
           Vuetify Template for Cordova Projects

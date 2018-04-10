@@ -8,21 +8,14 @@
     >
       <v-list>
         <v-list-tile 
-          v-for="(item, i) in items"
+          v-for="(item, i) in menuItems"
           :key="i"
+          :class="item.classes"
+          v-show="!item.cordova || isCordovaReady"
           @click="menuClick(item)">
-          <v-layout row>
+          <v-layout row >
             <div class="menu-icon" :title="item.title"><v-icon >{{item.icon}}</v-icon></div>
             <div v-show="!miniVariant" class="menu-label">{{item.title}}</div>
-          </v-layout>
-        </v-list-tile>
-        <hr v-if="isCordovaReady">
-        <v-list-tile  
-          v-if="isCordovaReady" 
-          @click="exitApp()">
-          <v-layout row>
-            <div class="menu-icon"><v-icon >fas fa-sign-out-alt</v-icon></div>
-            <div v-show="!miniVariant" class="menu-label">Exit</div>
           </v-layout>
         </v-list-tile>
       </v-list>
@@ -32,8 +25,14 @@
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- right menu-->
-      <v-btn icon light @click="fontSize++" >
-        <v-icon >fas fa-sign-out-alt</v-icon>
+      <v-btn icon light 
+        v-for="(item, i) in menuButtons"
+        :key="i"
+        @click="menuClick(item,true)" 
+        :class="item.classes"
+        v-show="!item.cordova || isCordovaReady"
+        :title="item.title">
+        <v-icon >{{item.icon}}</v-icon>
       </v-btn>
       </v-toolbar>
     <v-content>
@@ -50,7 +49,8 @@
       return {
         cordova: Vue.cordova,
         drawer: false,
-        items: menuConfig.items,
+        menuItems: menuConfig.items,
+        menuButtons: menuConfig.buttons,
         miniVariant: menuConfig.miniVariant,
         title: 'Vuetify',
         isCordovaReady: false
@@ -114,5 +114,9 @@
   }
   .menu-label{
     line-height:40px;
+  }
+  .menu-separator{
+    border-top:1px solid #EEE;
+    height:2px;
   }
 </style>
