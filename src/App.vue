@@ -12,13 +12,19 @@
           v-for="(item, i) in items"
           :key="i"
           @click="test()">
-          <v-icon >{{item.icon}}</v-icon>&nbsp;{{item.title}}
+          <v-layout row>
+            <div style="width:40px;line-height:40px;text-align:center"><v-icon >{{item.icon}}</v-icon></div>
+            <div style="line-height:40px">{{item.title}}</div>
+          </v-layout>
         </v-list-tile>
         <hr v-if="isCordovaReady">
         <v-list-tile  
           v-if="isCordovaReady" 
           @click="exitApp()">
-          <v-icon >fas fa-sign-out-alt</v-icon>&nbsp;Exit
+          <v-layout row>
+            <div style="width:40px;line-height:40px;text-align:center"><v-icon >fas fa-sign-out-alt</v-icon></div>
+            <div style="line-height:40px">Exit</div>
+          </v-layout>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
@@ -30,9 +36,6 @@
       </v-toolbar>
     <v-content>
       <router-view></router-view>
-      <div v-for="(item, i) in items" :key="i">
-        <input v-model="items[i].title"><input v-model="items[i].icon"><br>
-      </div>
     </v-content>
   </v-app>
 </template>
