@@ -3,7 +3,6 @@
     <v-navigation-drawer
       fixed
       :mini-variant="miniVariant"
-      :clipped="clipped"
       v-model="drawer"
       app
     >
@@ -11,10 +10,10 @@
         <v-list-tile 
           v-for="(item, i) in items"
           :key="i"
-          @click="test()">
+          @click="menuClick(item)">
           <v-layout row>
-            <div style="width:40px;line-height:40px;text-align:center"><v-icon >{{item.icon}}</v-icon></div>
-            <div style="line-height:40px">{{item.title}}</div>
+            <div class="menu-icon" :title="item.title"><v-icon >{{item.icon}}</v-icon></div>
+            <div v-show="!miniVariant" class="menu-label">{{item.title}}</div>
           </v-layout>
         </v-list-tile>
         <hr v-if="isCordovaReady">
@@ -22,17 +21,20 @@
           v-if="isCordovaReady" 
           @click="exitApp()">
           <v-layout row>
-            <div style="width:40px;line-height:40px;text-align:center"><v-icon >fas fa-sign-out-alt</v-icon></div>
-            <div style="line-height:40px">Exit</div>
+            <div class="menu-icon"><v-icon >fas fa-sign-out-alt</v-icon></div>
+            <div v-show="!miniVariant" class="menu-label">Exit</div>
           </v-layout>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed app :clipped-left="clipped">
+    <v-toolbar fixed app >
       <v-toolbar-side-icon @click.stop="drawer = !drawer" light></v-toolbar-side-icon>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- right menu-->
+      <v-btn icon light @click="fontSize++" >
+        <v-icon >fas fa-sign-out-alt</v-icon>
+      </v-btn>
       </v-toolbar>
     <v-content>
       <router-view></router-view>
@@ -42,29 +44,14 @@
 
 <script>
   import Vue from 'vue'
+  import menuConfig from './config/menu'
   export default {
     data () {
       return {
         cordova: Vue.cordova,
-        clipped: false,
         drawer: false,
-        items: [
-          {
-            icon: 'fas fa-home',
-            title: 'Home'
-          },
-          {
-            icon: 'fab fa-facebook-square',
-            title: 'Facebook Page'
-          },
-          {
-            icon: 'fab fa-pinterest-square',
-            title: 'Pinerest Page'
-          }
-        ],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
+        items: menuConfig.items,
+        miniVariant: menuConfig.miniVariant,
         title: 'Vuetify',
         isCordovaReady: false
       }
@@ -98,14 +85,14 @@
       },
       onBackButton () {
         // Handle the back-button event on Android.
-        this.exitApp()
+        // this.exitApp()
       },
       exitApp () {
         // By default it will exit the app.
         navigator.app.exitApp()
       },
-      test () {
-        alert('Hello there!')
+      menuClick (item) {
+        menuConfig.controller(item)
       }
     }
   }
@@ -119,5 +106,13 @@
   .footer{ /* Apply this to v-bottom-nav if necessary. */
     margin-bottom: constant(safe-area-inset-bottom);
     margin-bottom: env(safe-area-inset-bottom);
+  }
+  .menu-icon{
+    width:40px;
+    line-height:40px;
+    text-align:center;
+  }
+  .menu-label{
+    line-height:40px;
   }
 </style>
