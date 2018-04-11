@@ -1,6 +1,10 @@
 # vuetify-cordova
 
-> Cordova/VuetifyJs App template
+A VuetifyJs App template ready for Cordova App
+
+## Template Web Preview
+
+https://fraigo.github.io/vuetify-cordova/
 
 ## Build Setup
 
@@ -16,6 +20,9 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
+
+# create an Archive.zip package for Adobe Phonegap
+npm run pack
 
 # run unit tests
 npm run unit
@@ -47,3 +54,4 @@ npm run android-vm
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+

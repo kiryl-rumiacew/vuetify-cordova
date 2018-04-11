@@ -4,10 +4,10 @@
         <div>
           <img src="../assets/icon.png" alt="Vuetify1" class="mb-5">
         </div>
-        <div align-center >
+        <div class="align-center" >
           Vuetify Template for Cordova Projects
         </div>
-        <div align-center >
+        <div class="align-center" >
           <a href="https://github.com/fraigo/vuetify-cordova" ><v-icon >fab fa-github</v-icon> GitHub Project</a>
         </div>
       </v-layout>
@@ -18,5 +18,8 @@
 a:link {
   text-decoration: none;
   color:#004;
+}
+.align-center{
+  text-align:center;
 }
 </style>

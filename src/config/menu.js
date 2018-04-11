@@ -44,6 +44,7 @@ export default {
   controller (item, isButton) {
     if (actions[item.id]) {
       actions[item.id]()
+      return
     }
     alert('Clicked ' + item.title)
   },
