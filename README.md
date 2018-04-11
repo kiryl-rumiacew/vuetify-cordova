@@ -1,10 +1,8 @@
 # vuetify-cordova
 
-A VuetifyJs App template ready for Cordova App
+A VuetifyJs App template ready for Cordova App.
 
-## Template Web Preview
-
-https://fraigo.github.io/vuetify-cordova/
+Web demo in https://fraigo.github.io/vuetify-cordova/www/
 
 ## Build Setup
 
