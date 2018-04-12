@@ -1,39 +1,19 @@
 <template>
-  <v-app light>
+  <v-app :dark="darkMode">
     <v-navigation-drawer
       fixed
       :mini-variant="miniVariant"
       v-model="drawer"
       app
     >
-      <v-list>
-        <v-list-tile 
-          v-for="(item, i) in menuItems"
-          :key="i"
-          :class="item.classes"
-          v-show="!item.cordova || isCordovaReady"
-          @click="menuClick(item)">
-          <v-layout row >
-            <div class="menu-icon" :title="item.title"><v-icon >{{item.icon}}</v-icon></div>
-            <div v-show="!miniVariant" class="menu-label">{{item.title}}</div>
-          </v-layout>
-        </v-list-tile>
-      </v-list>
+      <menu-list :items="menuItems" @click="menuClick" :cordova-ready="isCordovaReady" :mini-variant="miniVariant"></menu-list>
     </v-navigation-drawer>
     <v-toolbar fixed app >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer" light></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer" ></v-toolbar-side-icon>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- right menu-->
-      <v-btn icon light 
-        v-for="(item, i) in menuButtons"
-        :key="i"
-        @click="menuClick(item,true)" 
-        :class="item.classes"
-        v-show="!item.cordova || isCordovaReady"
-        :title="item.title">
-        <v-icon >{{item.icon}}</v-icon>
-      </v-btn>
+      <button-list :items="menuButtons" :cordova-ready="isCordovaReady" @click="menuClick"></button-list>
       </v-toolbar>
     <v-content>
       <router-view></router-view>
@@ -44,7 +24,13 @@
 <script>
   import Vue from 'vue'
   import menuConfig from './config/menu'
+  import MenuList from './components/MenuList.vue'
+  import ButtonList from './components/ButtonList.vue'
   export default {
+    components: {
+      menuList: MenuList,
+      buttonList: ButtonList
+    },
     data () {
       return {
         cordova: Vue.cordova,
@@ -52,6 +38,7 @@
         menuItems: menuConfig.items,
         menuButtons: menuConfig.buttons,
         miniVariant: menuConfig.miniVariant,
+        darkMode: menuConfig.darkMode,
         title: 'Vuetify',
         isCordovaReady: false
       }

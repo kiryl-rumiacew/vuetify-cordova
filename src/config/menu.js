@@ -38,7 +38,7 @@ export default {
       icon: 'fas fa-sign-out-alt',
       title: 'Exit',
       id: 'exit',
-      cordova: true
+      cordova: false
     }
   ],
   controller (item, isButton) {
@@ -48,5 +48,6 @@ export default {
     }
     alert('Clicked ' + item.title)
   },
-  miniVariant: false
+  miniVariant: false,
+  darkMode: false
 }

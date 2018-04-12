@@ -1,0 +1,34 @@
+<template>
+  <v-layout row >
+    <div class="menu-icon" @click="iconClick(item)"  :title="item.title"><v-icon >{{item.icon}}</v-icon></div>
+    <div v-show="!iconOnly" class="menu-label">{{item.title}}</div>
+  </v-layout>
+</template>
+
+<script>
+  export default {
+    props: {
+      item: Object,
+      iconOnly: {
+        type: Boolean,
+        default: false
+      }
+    },
+    data () {
+      return {
+      }
+    },
+    created () {
+      // var self = this
+    },
+    methods: {
+      iconClick (item) {
+        this.$emit('iconClick')
+      }
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>
