@@ -94,16 +94,5 @@
     margin-bottom: constant(safe-area-inset-bottom);
     margin-bottom: env(safe-area-inset-bottom);
   }
-  .menu-icon{
-    width:40px;
-    line-height:40px;
-    text-align:center;
-  }
-  .menu-label{
-    line-height:40px;
-  }
-  .menu-separator{
-    border-top:1px solid #EEE;
-    height:2px;
-  }
+  
 </style>

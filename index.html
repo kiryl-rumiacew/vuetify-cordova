@@ -4,17 +4,30 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vuetify Cordova</title>
+    <title><%= htmlWebpackPlugin.options.app.title %></title>
     <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>img/icons/favicon-32x32.png">
     <!--[if IE]><link rel="shortcut icon" href="/img/icons/favicon.ico"><![endif]-->
     <!-- Add to home screen for Android and modern mobile browsers -->
     <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>manifest.json">
     <meta name="theme-color" content="#4DBA87">
 
+    <!-- Facebook OpenGraph  Social media attributes -->
+    <meta property="og:title" content="<%= htmlWebpackPlugin.options.app.title %>"/>
+    <meta property="og:description" content="<%= htmlWebpackPlugin.options.app.description %>"/>
+    <meta property="og:site_name" content="<%= htmlWebpackPlugin.options.app.title %>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="<%= htmlWebpackPlugin.options.app.url %>"/>
+    <link rel="canonical" href="<%= htmlWebpackPlugin.options.app.url %>" />
+
+    <!-- Facebook OpenGraph  Social media image link url and size (must be http, not https) -->
+    <meta property="og:image" content="<%= htmlWebpackPlugin.options.app.url.replace('https:','http:') %><%= htmlWebpackPlugin.options.app.icon %>"/>
+    <meta property="og:image:width" content="192"/>
+    <meta property="og:image:height" content="192"/>
+
     <!-- Add to home screen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="vuetify-cordova">
+    <meta name="apple-mobile-web-app-title" content="<%= htmlWebpackPlugin.options.app.title %>">
     <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>img/icons/apple-touch-icon-152x152.png">
     <!-- Add to home screen for Windows -->
     <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %>img/icons/msapplication-icon-144x144.png">

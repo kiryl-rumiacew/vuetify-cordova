@@ -11,6 +11,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 var loadMinified = require('./load-minified')
+var appAttributes = require('../src/config/app.js')
 
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -60,6 +61,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         : config.build.index,
       template: 'index.html',
       inject: true,
+      app: appAttributes,
       minify: {
         removeComments: true,
         collapseWhitespace: true,

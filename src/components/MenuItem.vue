@@ -30,5 +30,16 @@
 </script>
 
 <style scoped>
-
+  .menu-icon{
+    width:40px;
+    line-height:40px;
+    text-align:center;
+  }
+  .menu-label{
+    line-height:40px;
+  }
+  .menu-separator{
+    border-top:1px solid #EEE;
+    height:2px;
+  }
 </style>
