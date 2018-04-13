@@ -33,10 +33,15 @@
   .menu-icon{
     width:40px;
     line-height:40px;
+    height:40px;
     text-align:center;
   }
   .menu-label{
     line-height:40px;
+    height:40px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   .menu-separator{
     border-top:1px solid #EEE;
