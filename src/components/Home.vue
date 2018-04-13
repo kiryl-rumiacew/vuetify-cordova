@@ -10,6 +10,9 @@
         <div class="align-center" >
           <a href="https://github.com/fraigo/vuetify-cordova" ><v-icon >fab fa-github</v-icon> GitHub Project</a>
         </div>
+        <div class="align-center" >
+          <router-link :to="{ name: 'Form', params: { }}">Home</router-link>
+        </div>
       </v-layout>
   </v-container>
 </template>

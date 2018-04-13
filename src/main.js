@@ -7,7 +7,7 @@ import VueCordova from 'vue-cordova'
 import VueHead from 'vue-head'
 
 import App from './App'
-import router from './router'
+import appConfig from './config'
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
@@ -25,7 +25,7 @@ if (window.location.protocol === 'file:' || window.location.port === '3000') {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
+  router: appConfig.router,
   template: '<App/>',
   components: { App },
   head: {

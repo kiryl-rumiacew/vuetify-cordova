@@ -23,7 +23,7 @@
 
 <script>
   import Vue from 'vue'
-  import menuConfig from './config/menu'
+  import appConfig from './config/index'
   import MenuList from './components/MenuList.vue'
   import ButtonList from './components/ButtonList.vue'
   export default {
@@ -35,10 +35,10 @@
       return {
         cordova: Vue.cordova,
         drawer: false,
-        menuItems: menuConfig.items,
-        menuButtons: menuConfig.buttons,
-        miniVariant: menuConfig.miniVariant,
-        darkMode: menuConfig.darkMode,
+        menuItems: appConfig.menu.items,
+        menuButtons: appConfig.menu.buttons,
+        miniVariant: appConfig.menu.miniVariant,
+        darkMode: appConfig.menu.darkMode,
         title: 'Vuetify',
         isCordovaReady: false
       }
@@ -79,7 +79,7 @@
         navigator.app.exitApp()
       },
       menuClick (item) {
-        menuConfig.controller(item)
+        appConfig.menu.controller(item)
       }
     }
   }
