@@ -1,0 +1,66 @@
+<template>
+  <v-container >
+      <v-layout row wrap align-center>
+        <v-flex xs10 >
+          <h1 >Contact form</h1>
+        </v-flex>
+        <v-flex xs2 align-center>
+          <router-link :to="{ name: 'Home', params: { }}">Home</router-link>
+        </v-flex>
+        <v-flex xs12 px-1>
+          <v-text-field
+            v-model="contact.name"
+            label="Name"
+            :error-messages="errors.collect('name')"
+            data-vv-name="name"
+            v-validate="'required|max:20'"
+            required
+          ></v-text-field>
+        </v-flex>
+        <v-flex xs6 px-1>
+          <v-text-field
+            v-model="contact.email"
+            label="E-mail"
+            :error-messages="errors.collect('email')"
+            v-validate="'required|email'"
+            data-vv-name="email"
+            required
+          ></v-text-field>
+        </v-flex>
+        <v-flex xs6 px-1>
+          <v-text-field
+            v-model="contact.phone"
+            label="Phone"
+            :error-messages="errors.collect('phone')"
+            v-validate="{ required: true, regex: /[0-9]+/ }"
+            data-vv-name="phone"
+            required
+          ></v-text-field>
+        </v-flex>
+        
+        {{contact}}
+      </v-layout>
+  </v-container>
+</template>
+
+<script>
+  export default {
+    props: {
+    },
+    data () {
+      return {
+        contact: {
+        }
+      }
+    },
+    created () {
+      // var self = this
+    },
+    methods: {
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>

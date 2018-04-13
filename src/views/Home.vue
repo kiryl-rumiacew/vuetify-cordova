@@ -1,18 +1,18 @@
 <template>
-  <v-container fluid >
-      <v-layout column align-center >
-        <div>
+  <v-container>
+      <v-layout row wrap align-center>
+        <v-flex xs12>
           <img src="../assets/icon.png" alt="Vuetify1" class="mb-5">
-        </div>
-        <div class="align-center" >
+        </v-flex>
+        <v-flex xs12>
           Vuetify Template for Cordova Projects
-        </div>
-        <div class="align-center" >
+        </v-flex>
+        <v-flex xs12 my-3>
+          <router-link :to="{ name: 'Form', params: { }}">Form example</router-link>
+        </v-flex>
+        <v-flex xs12>
           <a href="https://github.com/fraigo/vuetify-cordova" ><v-icon >fab fa-github</v-icon> GitHub Project</a>
-        </div>
-        <div class="align-center" >
-          <router-link :to="{ name: 'Form', params: { }}">Home</router-link>
-        </div>
+        </v-flex>
       </v-layout>
   </v-container>
 </template>
