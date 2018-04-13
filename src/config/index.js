@@ -8,6 +8,12 @@ Vue.use(Router)
 var actions = {
   exit () {
     navigator.app.exitApp()
+  },
+  ghPage () {
+    window.open('https://fraigo.github.io/vuetify-cordova/www/', '_blank')
+  },
+  ghProject () {
+    window.open('https://github.com/fraigo/vuetify-cordova', '_blank')
   }
 }
 
@@ -36,19 +42,19 @@ var menu = {
     },
     {
       icon: 'fab fa-wpforms',
-      title: 'Form',
+      title: 'Form Example',
       route: 'Form',
       id: 'form'
     },
     {
-      icon: 'fab fa-facebook-square',
-      title: 'Facebook Page',
-      id: 'fb'
+      icon: 'fab fa-github',
+      title: 'GitHub Project',
+      id: 'ghProject'
     },
     {
-      icon: 'fab fa-pinterest-square',
-      title: 'Pinterest Page',
-      id: 'pt'
+      icon: 'fab fa-github',
+      title: 'GitHub Demo Page',
+      id: 'ghPage'
     },
     {
       classes: ['menu-separator'],
