@@ -11,6 +11,7 @@
           <v-text-field
             v-model="contact.name"
             label="Name"
+            placeholder="Enter your name"
             :error-messages="errors.collect('name')"
             data-vv-name="name"
             v-validate="'required|max:20'"
@@ -21,6 +22,7 @@
           <v-text-field
             v-model="contact.email"
             label="E-mail"
+            placeholder="Enter your email"
             :error-messages="errors.collect('email')"
             v-validate="'required|email'"
             data-vv-name="email"
@@ -31,6 +33,7 @@
           <v-text-field
             v-model="contact.phone"
             label="Phone"
+            placeholder="+1 111 111 1111"
             :error-messages="errors.collect('phone')"
             v-validate="{ required: true, regex: /[0-9]+/ }"
             data-vv-name="phone"

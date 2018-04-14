@@ -15,7 +15,7 @@
       <!-- right menu-->
       <button-list :items="menuButtons" :cordova-ready="isCordovaReady" @click="menuClick"></button-list>
       </v-toolbar>
-    <v-content style="border:2px solid green">
+    <v-content>
       <router-view></router-view>
     </v-content>
   </v-app>

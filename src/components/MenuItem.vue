@@ -1,5 +1,5 @@
 <template>
-  <v-layout row >
+  <v-layout row>
     <div class="menu-icon" @click="iconClick(item)"  :title="item.title"><v-icon >{{item.icon}}</v-icon></div>
     <div v-show="!iconOnly" class="menu-label">{{item.title}}</div>
   </v-layout>
@@ -42,9 +42,5 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-  }
-  .menu-separator{
-    border-top:1px solid #EEE;
-    height:2px;
   }
 </style>

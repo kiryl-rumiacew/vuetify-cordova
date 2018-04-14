@@ -44,5 +44,8 @@
 </script>
 
 <style scoped>
-
+  .menu-separator{
+    border-top:1px solid #EEE;
+    height:2px !important;
+  }
 </style>

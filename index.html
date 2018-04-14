@@ -38,18 +38,39 @@
         for (var file of chunk.files) {
           if (file.match(/\.(js|css)$/)) { %>
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
+    <style>
+    @keyframes fade {
+      from { opacity: 1.0; }
+      50% { opacity: 0.4; }
+      to { opacity: 1.0; }
+    }
+    
+    @-webkit-keyframes fade {
+        from { opacity: 1.0; }
+        50% { opacity: 0.4; }
+        to { opacity: 1.0; }
+    }
+    
+    .blinking {
+        animation:fade 3000ms infinite;
+        -webkit-animation:fade 3000ms infinite;
+    }   
+
+    #splash{
+      padding-top:10vh;
+    } 
+    </style>
   </head>
   <body>
     <noscript>
       This is your fallback content in case JavaScript fails to load.
     </noscript>
-    <div id="app">
-      <center><img src="<%= htmlWebpackPlugin.files.publicPath %>img/icons/icon.png" id="loading"></center>
+    <div id="app" >
+      <center><img class="blinking" src="<%= htmlWebpackPlugin.files.publicPath %>img/icons/icon.png" id="splash"></center>
     </div>
     <% if (false) { %>
       <script>document.location.replace('./www/')</script>
     <% } %>
-    <script src="cordova.js"></script>
     <!-- Todo: only include in production -->
     <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
     <!-- built files will be auto injected -->

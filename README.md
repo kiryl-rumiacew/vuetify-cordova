@@ -53,3 +53,17 @@ npm run android-vm
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+
+## Command line tools
+
+### Cordova CLI
+
+```
+npm install -g cordova
+```
+
+### PhoneGap Build CLI
+
+```
+npm install -g pgb-cli
+```
