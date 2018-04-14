@@ -10,7 +10,7 @@
     </v-navigation-drawer>
     <v-toolbar fixed app >
       <v-toolbar-side-icon @click.stop="drawer = !drawer" ></v-toolbar-side-icon>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-toolbar-title v-text="config.app.title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- right menu-->
       <button-list :items="menuButtons" :cordova-ready="isCordovaReady" @click="menuClick"></button-list>
@@ -39,7 +39,7 @@
         menuButtons: appConfig.menu.buttons,
         miniVariant: appConfig.menu.miniVariant,
         darkMode: appConfig.menu.darkMode,
-        title: 'Vuetify',
+        config: appConfig,
         isCordovaReady: false
       }
     },

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home'
 import Contact from '@/views/Contact'
+import app from './app'
 
 Vue.use(Router)
 
@@ -95,6 +96,7 @@ var menu = {
 }
 
 export default {
+  app: app,
   router: router,
   menu: menu
 }
