@@ -11,7 +11,7 @@
           <v-text-field
             v-model="contact.name"
             label="Name"
-            placeholder="Enter your name"
+            
             :error-messages="errors.collect('name')"
             data-vv-name="name"
             v-validate="'required|max:20'"
@@ -64,6 +64,11 @@
   }
 </script>
 
-<style scoped>
-
+<style >
+.input-group label{
+  margin-top: -22px;
+  -webkit-transform: none !important;
+  transform: none !important;
+  font-size: 0.9em;
+}
 </style>

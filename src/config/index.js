@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home'
 import Contact from '@/views/Contact'
+import CssComp from '@/views/CssCompatibility'
+
 import app from './app'
 
 Vue.use(Router)
@@ -29,6 +31,11 @@ var router = new Router({
       path: '/form',
       name: 'Form',
       component: Contact
+    },
+    {
+      path: '/css',
+      name: 'Css',
+      component: CssComp
     }
   ]
 })
@@ -46,6 +53,12 @@ var menu = {
       title: 'Form Example',
       route: 'Form',
       id: 'form'
+    },
+    {
+      icon: 'fab fa-css3-alt',
+      title: 'Css Compatibility',
+      route: 'Css',
+      id: 'css'
     },
     {
       icon: 'fab fa-github',
