@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home'
 import Contact from '@/views/Contact'
-import CssComp from '@/views/CssCompatibility'
+import CssComp from '@/views/Properties'
 
 import app from './app'
 
@@ -33,8 +33,8 @@ var router = new Router({
       component: Contact
     },
     {
-      path: '/css',
-      name: 'Css',
+      path: '/props',
+      name: 'Props',
       component: CssComp
     }
   ]
@@ -56,9 +56,9 @@ var menu = {
     },
     {
       icon: 'fab fa-css3-alt',
-      title: 'Css Compatibility',
-      route: 'Css',
-      id: 'css'
+      title: 'Browser Properties',
+      route: 'Props',
+      id: 'props'
     },
     {
       icon: 'fab fa-github',

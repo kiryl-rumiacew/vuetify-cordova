@@ -2,6 +2,13 @@
   <v-container>
       <v-layout row wrap align-center>
         <v-flex xs12>
+          <h1>WebView Properties</h1>
+        </v-flex>
+        <v-flex xs12 v-for="(value,key) in browser" :key="key">
+          <h2>{{key}}</h2>
+          <h4>{{value}}</h4>
+        </v-flex>
+        <v-flex xs12>
           <h1>CSS Compatibility</h1>
         </v-flex>
         <v-flex xs12 v-for="(items,index) in props" :key="index">
@@ -37,6 +44,12 @@
             this.props[key].push(prefixes[i])
           }
         }
+      }
+      this.browser = {
+        userAgent: navigator.userAgent,
+        language: navigator.language,
+        onLine: navigator.onLine,
+        maxTouchPoints: navigator.maxTouchPoints
       }
     },
     methods: {

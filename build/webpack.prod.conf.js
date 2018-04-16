@@ -75,6 +75,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         './service-worker-prod.js'))}</script>`
     }),
 
+    // Generate config.xml and manifest.jsom files from app config
     new CopyWebpackPlugin([
       {
         to: '../config.xml',

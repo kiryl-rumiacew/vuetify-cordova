@@ -19,7 +19,8 @@
     "android-vm": "npm run build && cordova run android",
     "pack": "rm Archive.zip && zip -r Archive.zip config.xml www/",
     "pgb-android-login": "pgb login && pgb unlock android 183027",
-    "pgb-android-build": "pgb update 1990958 Archive.zip && pgb build 1990958 android && pgb log 1990958 android"
+    "pgb-android-update": "pgb update 3121691 Archive.zip",
+    "pgb-android-build": "pgb login && pgb build 3121691 android && pgb log 3121691 android"
   },
   "dependencies": {
     "cordova-android": "^7.0.0",

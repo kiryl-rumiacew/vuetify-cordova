@@ -4,21 +4,21 @@
         <v-flex xs10 >
           <h1 >Contact form</h1>
         </v-flex>
-        <v-flex xs2 align-center>
+        <v-flex xs2 align-right>
           <router-link :to="{ name: 'Home', params: { }}">Home</router-link>
         </v-flex>
         <v-flex xs12 px-1>
           <v-text-field
             v-model="contact.name"
             label="Name"
-            
+            placeholder="Enter your name"
             :error-messages="errors.collect('name')"
             data-vv-name="name"
             v-validate="'required|max:20'"
             required
           ></v-text-field>
         </v-flex>
-        <v-flex xs6 px-1>
+        <v-flex sm6 px-1>
           <v-text-field
             v-model="contact.email"
             label="E-mail"
@@ -29,7 +29,7 @@
             required
           ></v-text-field>
         </v-flex>
-        <v-flex xs6 px-1>
+        <v-flex sm6 px-1>
           <v-text-field
             v-model="contact.phone"
             label="Phone"
@@ -40,8 +40,9 @@
             required
           ></v-text-field>
         </v-flex>
-        
+        <v-flex xs12 align-center px-1>
         {{contact}}
+        </v-flex>
       </v-layout>
   </v-container>
 </template>

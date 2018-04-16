@@ -4,6 +4,8 @@ A VuetifyJs App template ready for Cordova App.
 
 Web demo in https://fraigo.github.io/vuetify-cordova/www/
 
+Android demo in https://build.phonegap.com/apps/3121691/share
+
 ## Build Setup
 
 ``` bash
