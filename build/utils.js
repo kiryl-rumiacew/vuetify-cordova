@@ -69,3 +69,13 @@ exports.styleLoaders = function (options) {
   }
   return output
 }
+
+exports.expressionReplacer = function (content,appAttributes) {
+  var matches = content.match(/<%=([^>]+)%>/g)
+  var app = appAttributes
+  for(var index in matches){
+    var match=(matches[index].match(/<%=(.+)%>/))[1].trim()
+    content = content.replace(matches[index],eval(match));
+  }
+  return content;
+}

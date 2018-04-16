@@ -1,10 +1,10 @@
 {
-  "name": "Vuetify Cordova",
-  "short_name": "Vuetify",
+  "name": "<%= app.title %>",
+  "short_name": "<%= app.shortTitle %>",
   "icons": [
     {
-      "src": "img/icons/icon.png",
-      "sizes": "256x256",
+      "src": "<%= app.icon %>",
+      "sizes": "<%= app.iconSize %>x<%= app.iconSize %>",
       "type": "image/png"
     }
   ],

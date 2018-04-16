@@ -8,13 +8,13 @@
     >
       <menu-list :items="menuItems" @click="menuClick" :cordova-ready="isCordovaReady" :mini-variant="miniVariant"></menu-list>
     </v-navigation-drawer>
-    <v-toolbar fixed app >
+    <v-toolbar fixed app v-if="toolbar">
       <v-toolbar-side-icon @click.stop="drawer = !drawer" ></v-toolbar-side-icon>
       <v-toolbar-title v-text="config.app.title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- right menu-->
       <button-list :items="menuButtons" :cordova-ready="isCordovaReady" @click="menuClick"></button-list>
-      </v-toolbar>
+    </v-toolbar>
     <v-content>
       <router-view></router-view>
     </v-content>
@@ -35,6 +35,7 @@
       return {
         cordova: Vue.cordova,
         drawer: false,
+        toolbar: appConfig.menu.toolbar,
         menuItems: appConfig.menu.items,
         menuButtons: appConfig.menu.buttons,
         miniVariant: appConfig.menu.miniVariant,

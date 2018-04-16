@@ -105,6 +105,7 @@ var menu = {
     alert('Clicked ' + item.title)
   },
   miniVariant: false,
+  toolbar: true,
   darkMode: false
 }
 

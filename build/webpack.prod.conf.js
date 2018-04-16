@@ -59,7 +59,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       filename: process.env.NODE_ENV === 'testing'
         ? 'index.html'
         : config.build.index,
-      template: 'index.html',
+      template: 'src/index.html',
       inject: true,
       app: appAttributes,
       minify: {
@@ -74,6 +74,26 @@ var webpackConfig = merge(baseWebpackConfig, {
       serviceWorkerLoader: `<script>${loadMinified(path.join(__dirname,
         './service-worker-prod.js'))}</script>`
     }),
+
+    new CopyWebpackPlugin([
+      {
+        to: '../config.xml',
+        from: 'src/config.xml',
+        transform (content, path) {
+          content=utils.expressionReplacer(content.toString(), appAttributes)
+          return content
+        }
+      },
+      {
+        to: 'manifest.json',
+        from: 'src/manifest.json',
+        transform (content, path) {
+          content=utils.expressionReplacer(content.toString(), appAttributes)
+          return content
+        }
+      }
+    ]),
+
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
