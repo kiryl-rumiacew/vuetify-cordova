@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/views/Home'
 import Contact from '@/views/Contact'
 import CssComp from '@/views/Properties'
+import Form from '@/views/Form'
 
 import app from './app'
 
@@ -10,7 +11,9 @@ Vue.use(Router)
 
 var actions = {
   exit () {
-    navigator.app.exitApp()
+    if (confirm('Exit application?')) {
+      navigator.app.exitApp()
+    }
   },
   ghPage () {
     window.open('https://fraigo.github.io/vuetify-cordova/www/', '_blank')
@@ -28,14 +31,63 @@ var router = new Router({
       component: Home
     },
     {
-      path: '/form',
-      name: 'Form',
+      path: '/contact',
+      name: 'Contact',
       component: Contact
     },
     {
       path: '/props',
       name: 'Props',
       component: CssComp
+    },
+    {
+      path: '/form',
+      name: 'Form',
+      component: Form,
+      props: {
+        fields: [
+          {
+            label: 'Name',
+            name: 'name',
+            value: null,
+            placeholder: 'Enter name',
+            validation: 'required',
+            required: true,
+            type: 'text'
+          },
+          {
+            label: 'Email',
+            name: 'email',
+            value: null,
+            placeholder: 'Enter email',
+            validation: 'required|email',
+            required: true,
+            width: 50,
+            type: 'text'
+          },
+          {
+            label: 'Age',
+            name: 'age',
+            value: null,
+            placeholder: 'Your age',
+            validation: 'required',
+            required: true,
+            mask: '###',
+            width: 50,
+            type: 'number'
+          },
+          {
+            label: 'Address',
+            name: 'address',
+            value: null,
+            placeholder: 'Enter address',
+            validation: 'required',
+            required: true,
+            multiLine: true,
+            type: 'text'
+          }
+        ]
+      }
     }
   ]
 })

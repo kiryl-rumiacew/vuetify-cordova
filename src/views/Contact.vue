@@ -18,7 +18,7 @@
             required
           ></v-text-field>
         </v-flex>
-        <v-flex sm6 px-1>
+        <v-flex xs12 :sm6="true" px-1>
           <v-text-field
             v-model="contact.email"
             label="E-mail"
@@ -29,7 +29,7 @@
             required
           ></v-text-field>
         </v-flex>
-        <v-flex sm6 px-1>
+        <v-flex xs12 :sm6="true" px-1>
           <v-text-field
             v-model="contact.phone"
             label="Phone"
