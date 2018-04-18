@@ -22,9 +22,6 @@
             :type="field.type?field.type:'text'"
           ></v-text-field>
         </v-flex>
-        <v-flex xs12 align-center px-1>
-        {{fields}}
-        </v-flex>
       </v-layout>
   </v-container>
 </template>
@@ -32,8 +29,10 @@
 <script>
   export default {
     props: {
-      fields: Array,
-      default: []
+      fields: {
+        type: Array,
+        default: []
+      }
     },
     data () {
       return {

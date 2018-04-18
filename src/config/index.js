@@ -1,148 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/views/Home'
-import Contact from '@/views/Contact'
-import CssComp from '@/views/Properties'
-import Form from '@/views/Form'
 
 import app from './app'
+import routes from './routes'
+import menuItems from '../data/menuItems.js'
+import menuButtons from '../data/menuButtons.js'
+import actions from '../data/actions.js'
 
 Vue.use(Router)
 
-var actions = {
-  exit () {
-    if (confirm('Exit application?')) {
-      navigator.app.exitApp()
-    }
-  },
-  ghPage () {
-    window.open('https://fraigo.github.io/vuetify-cordova/www/', '_blank')
-  },
-  ghProject () {
-    window.open('https://github.com/fraigo/vuetify-cordova', '_blank')
-  }
-}
-
 var router = new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/contact',
-      name: 'Contact',
-      component: Contact
-    },
-    {
-      path: '/props',
-      name: 'Props',
-      component: CssComp
-    },
-    {
-      path: '/form',
-      name: 'Form',
-      component: Form,
-      props: {
-        fields: [
-          {
-            label: 'Name',
-            name: 'name',
-            value: null,
-            placeholder: 'Enter name',
-            validation: 'required',
-            required: true,
-            type: 'text'
-          },
-          {
-            label: 'Email',
-            name: 'email',
-            value: null,
-            placeholder: 'Enter email',
-            validation: 'required|email',
-            required: true,
-            width: 50,
-            type: 'text'
-          },
-          {
-            label: 'Age',
-            name: 'age',
-            value: null,
-            placeholder: 'Your age',
-            validation: 'required',
-            required: true,
-            mask: '###',
-            width: 50,
-            type: 'number'
-          },
-          {
-            label: 'Address',
-            name: 'address',
-            value: null,
-            placeholder: 'Enter address',
-            validation: 'required',
-            required: true,
-            multiLine: true,
-            type: 'text'
-          }
-        ]
-      }
-    }
-  ]
+  routes: routes
 })
 
 var menu = {
-  items: [
-    {
-      icon: 'fas fa-home',
-      title: 'Home',
-      route: 'Home',
-      id: 'home'
-    },
-    {
-      icon: 'fab fa-wpforms',
-      title: 'Form Example',
-      route: 'Form',
-      id: 'form'
-    },
-    {
-      icon: 'fab fa-css3-alt',
-      title: 'Browser Properties',
-      route: 'Props',
-      id: 'props'
-    },
-    {
-      icon: 'fab fa-github',
-      title: 'GitHub Project',
-      id: 'ghProject'
-    },
-    {
-      icon: 'fab fa-github',
-      title: 'GitHub Demo Page',
-      id: 'ghPage'
-    },
-    {
-      classes: ['menu-separator'],
-      cordova: true
-    },
-    {
-      icon: 'fas fa-sign-out-alt',
-      title: 'Exit',
-      id: 'exit',
-      separator: true,
-      cordova: true
-    }
-  ],
-  buttons: [
-    {
-      icon: 'fas fa-sign-out-alt',
-      title: 'Exit',
-      id: 'exit',
-      cordova: true
-    }
-  ],
+  items: menuItems,
+  buttons: menuButtons,
   controller (item, isButton) {
+    console.log(item.id, actions)
     if (item.route) {
       router.push({
         name: item.route,
