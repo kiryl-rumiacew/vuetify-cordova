@@ -7,7 +7,7 @@
         <v-flex xs2 align-right>
           <router-link :to="{ name: 'Home', params: { }}">Home</router-link>
         </v-flex>
-        <v-flex xs12 :sm6="field.width==50" :sm4="field.width==33" :sm8="field.width==66"  px-1 v-for="(field, index) in fields" :key="index" >
+        <v-flex xs12 :sm6="field.width==50" :sm4="field.width==33" :sm8="field.width==66"  px-1 v-for="(field, index) in formFields" :key="index" >
           <v-text-field
             v-model="field.value"
             :label="field.label"
@@ -29,9 +29,8 @@
 <script>
   export default {
     props: {
-      fields: {
-        type: Array,
-        default: []
+      formFields: {
+        type: Array
       }
     },
     data () {

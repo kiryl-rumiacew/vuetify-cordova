@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import app from './app'
-import routes from './routes'
-import menuItems from '../data/menuItems.js'
-import menuButtons from '../data/menuButtons.js'
-import actions from '../data/actions.js'
+import routes from '../data/routes'
+import menuItems from '../data/menuItems'
+import menuButtons from '../data/menuButtons'
+import actions from '../data/actions'
 
 Vue.use(Router)
 
@@ -17,7 +17,6 @@ var menu = {
   items: menuItems,
   buttons: menuButtons,
   controller (item, isButton) {
-    console.log(item.id, actions)
     if (item.route) {
       router.push({
         name: item.route,

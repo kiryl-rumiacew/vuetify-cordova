@@ -26,7 +26,7 @@ export default [
     name: 'Form',
     component: Form,
     props: {
-      fields: fieldsExample
+      formFields: fieldsExample
     }
   }
 ]

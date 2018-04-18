@@ -7,6 +7,8 @@ import VueCordova from 'vue-cordova'
 import VueHead from 'vue-head'
 import VeeValidate from 'vee-validate'
 
+import './lib/fontawesome/css/fontawesome-all.min.scss'
+
 import App from './App'
 import appConfig from './config'
 

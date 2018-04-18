@@ -9,7 +9,11 @@
       <menu-list :items="menuItems" @click="menuClick" :cordova-ready="isCordovaReady" :mini-variant="miniVariant"></menu-list>
     </v-navigation-drawer>
     <v-toolbar fixed app v-if="toolbar">
-      <v-toolbar-side-icon @click.stop="drawer = !drawer" ></v-toolbar-side-icon>
+      <v-btn icon  
+        @click="drawer = !drawer" 
+       :title="menu">
+        <v-icon >fas fa-bars</v-icon>
+      </v-btn>
       <v-toolbar-title v-text="config.app.title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- right menu-->
