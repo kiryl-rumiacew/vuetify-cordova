@@ -6,7 +6,7 @@
         @click="buttonClick(item)" 
         :class="item.classes"
         v-show="!item.cordova || cordovaReady"
-        :title="item.title">
+        :title="lang.expr(item.title)">
         <v-icon >{{item.icon}}</v-icon>
       </v-btn>
   </span>
@@ -23,6 +23,7 @@
     },
     data () {
       return {
+        lang: window.$lang
       }
     },
     created () {

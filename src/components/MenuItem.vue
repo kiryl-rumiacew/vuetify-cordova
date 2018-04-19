@@ -1,7 +1,7 @@
 <template>
   <v-layout row>
-    <div class="menu-icon" @click="iconClick(item)"  :title="item.title"><v-icon >{{item.icon}}</v-icon></div>
-    <div v-show="!iconOnly" class="menu-label">{{item.title}}</div>
+    <div class="menu-icon" @click="iconClick(item)"  :title="lang.expr(item.title)"><v-icon >{{item.icon}}</v-icon></div>
+    <div v-show="!iconOnly" class="menu-label">{{lang.expr(item.title)}}</div>
   </v-layout>
 </template>
 
@@ -16,6 +16,7 @@
     },
     data () {
       return {
+        lang: window.$lang
       }
     },
     created () {

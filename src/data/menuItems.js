@@ -3,31 +3,40 @@ import icons from '../data/icons'
 export default [
   {
     icon: icons.home,
-    title: 'Home',
+    title: 'home',
     route: 'Home',
     id: 'home'
   },
   {
     icon: icons.form,
-    title: 'Form Example',
+    title: 'form',
     route: 'Form',
     id: 'form'
   },
   {
     icon: icons.html,
-    title: 'Browser Properties',
+    title: 'browser',
     route: 'Props',
     id: 'props'
   },
   {
     icon: icons.github,
-    title: 'GitHub Project',
-    id: 'ghProject'
+    title: 'github_project',
+    id: 'githubProject'
   },
   {
     icon: icons.github,
-    title: 'GitHub Demo Page',
-    id: 'ghPage'
+    title: 'github_demo',
+    id: 'githubPage'
+  },
+  {
+    classes: ['menu-separator']
+  },
+  {
+    icon: icons.options,
+    title: 'options',
+    route: 'Options',
+    id: 'options'
   },
   {
     classes: ['menu-separator'],

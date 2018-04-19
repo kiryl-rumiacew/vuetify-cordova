@@ -1,29 +1,29 @@
 
 export default [
   {
-    label: 'Name',
+    label: 'name',
     name: 'name',
     value: null,
-    placeholder: 'Enter name',
+    placeholder: ['enter_param', 'name'],
     validation: 'required',
     required: true,
     type: 'text'
   },
   {
-    label: 'Email',
+    label: 'email',
     name: 'email',
     value: null,
-    placeholder: 'Enter email',
+    placeholder: ['enter_param', 'email'],
     validation: 'required|email',
     required: true,
     width: 50,
     type: 'text'
   },
   {
-    label: 'Age',
+    label: 'age',
     name: 'age',
     value: null,
-    placeholder: 'Your age',
+    placeholder: ['enter_param', 'age'],
     validation: 'required',
     required: true,
     mask: '###',
@@ -31,10 +31,10 @@ export default [
     type: 'number'
   },
   {
-    label: 'Address',
+    label: 'address',
     name: 'address',
     value: null,
-    placeholder: 'Enter address',
+    placeholder: ['enter_param', 'address'],
     validation: 'required',
     required: true,
     multiLine: true,

@@ -32,6 +32,7 @@ new Vue({
   router: appConfig.router,
   template: '<App/>',
   components: { App },
+  menu: appConfig.menu,
   head: {
     meta: [
       {

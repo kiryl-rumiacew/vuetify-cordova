@@ -1,23 +1,23 @@
 <template>
-  <v-app :dark="darkMode">
+  <v-app :dark="config.menu.darkMode">
     <v-navigation-drawer
       fixed
-      :mini-variant="miniVariant"
-      v-model="drawer"
+      :mini-variant="config.menu.miniVariant"
+      v-model="config.menu.opened"
       app
     >
-      <menu-list :items="menuItems" @click="menuClick" :cordova-ready="isCordovaReady" :mini-variant="miniVariant"></menu-list>
+      <menu-list :items="config.menu.items" @click="menuClick" :cordova-ready="isCordovaReady" :mini-variant="config.menu.miniVariant"></menu-list>
     </v-navigation-drawer>
-    <v-toolbar fixed app v-if="toolbar">
+    <v-toolbar fixed app v-if="config.menu.toolbar">
       <v-btn icon  
-        @click="drawer = !drawer" 
-       :title="menu">
+        @click="config.menu.opened = !config.menu.opened" 
+       :title="lang.current.menu">
         <v-icon >fas fa-bars</v-icon>
       </v-btn>
       <v-toolbar-title v-text="config.app.title"></v-toolbar-title>
       <v-spacer></v-spacer>
       <!-- right menu-->
-      <button-list :items="menuButtons" :cordova-ready="isCordovaReady" @click="menuClick"></button-list>
+      <button-list :items="config.menu.buttons" :cordova-ready="isCordovaReady" @click="menuClick"></button-list>
     </v-toolbar>
     <v-content>
       <router-view></router-view>
@@ -30,6 +30,15 @@
   import appConfig from './config/index'
   import MenuList from './components/MenuList.vue'
   import ButtonList from './components/ButtonList.vue'
+
+  import lang from './config/lang'
+
+  window.$storage = {
+    config: appConfig
+  }
+
+  window.$lang = lang
+
   export default {
     components: {
       menuList: MenuList,
@@ -38,13 +47,8 @@
     data () {
       return {
         cordova: Vue.cordova,
-        drawer: false,
-        toolbar: appConfig.menu.toolbar,
-        menuItems: appConfig.menu.items,
-        menuButtons: appConfig.menu.buttons,
-        miniVariant: appConfig.menu.miniVariant,
-        darkMode: appConfig.menu.darkMode,
-        config: appConfig,
+        config: window.$storage.config,
+        lang: window.$lang,
         isCordovaReady: false
       }
     },

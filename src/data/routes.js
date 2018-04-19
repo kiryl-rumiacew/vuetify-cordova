@@ -2,6 +2,7 @@ import Home from '@/views/Home'
 import Contact from '@/views/Contact'
 import CssComp from '@/views/Properties'
 import Form from '@/views/Form'
+import Options from '@/views/Options'
 
 import fieldsExample from '@/data/fieldsExample.js'
 
@@ -28,5 +29,10 @@ export default [
     props: {
       formFields: fieldsExample
     }
+  },
+  {
+    path: '/options',
+    name: 'Options',
+    component: Options
   }
 ]

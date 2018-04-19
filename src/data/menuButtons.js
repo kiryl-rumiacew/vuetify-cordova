@@ -4,7 +4,7 @@ export default
 [
   {
     icon: icons.exit,
-    title: 'Exit',
+    title: 'exit',
     id: 'exit',
     cordova: true
   }

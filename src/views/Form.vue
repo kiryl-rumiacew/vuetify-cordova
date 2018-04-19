@@ -2,16 +2,16 @@
   <v-container >
       <v-layout row wrap align-center>
         <v-flex xs10 >
-          <h1 >Contact form</h1>
+          <h1 >{{lang.current.form}}</h1>
         </v-flex>
         <v-flex xs2 align-right>
-          <router-link :to="{ name: 'Home', params: { }}">Home</router-link>
+          <router-link :to="{ name: 'Home', params: { }}">{{lang.current.home}}</router-link>
         </v-flex>
         <v-flex xs12 :sm6="field.width==50" :sm4="field.width==33" :sm8="field.width==66"  px-1 v-for="(field, index) in formFields" :key="index" >
           <v-text-field
             v-model="field.value"
-            :label="field.label"
-            :placeholder="field.placeholder"
+            :label="lang.expr(field.label)"
+            :placeholder="lang.expr(field.placeholder)"
             :error-messages="errors.collect(field.name)"
             :data-vv-name="field.name"
             v-validate="field.validation"
@@ -35,6 +35,7 @@
     },
     data () {
       return {
+        lang: window.$lang
       }
     },
     created () {

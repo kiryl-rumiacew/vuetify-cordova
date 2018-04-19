@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import app from './app'
+import app from '../data/app'
 import routes from '../data/routes'
 import menuItems from '../data/menuItems'
 import menuButtons from '../data/menuButtons'
@@ -9,16 +9,16 @@ import actions from '../data/actions'
 
 Vue.use(Router)
 
-var router = new Router({
+var appRouter = new Router({
   routes: routes
 })
 
-var menu = {
+var menuConfig = {
   items: menuItems,
   buttons: menuButtons,
   controller (item, isButton) {
     if (item.route) {
-      router.push({
+      appRouter.push({
         name: item.route,
         params: item.params
       })
@@ -32,11 +32,12 @@ var menu = {
   },
   miniVariant: false,
   toolbar: true,
-  darkMode: false
+  darkMode: false,
+  opened: false
 }
 
 export default {
   app: app,
-  router: router,
-  menu: menu
+  router: appRouter,
+  menu: menuConfig
 }

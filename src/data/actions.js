@@ -6,10 +6,10 @@ export default {
       navigator.app.exitApp()
     }
   },
-  ghPage () {
+  githubPage () {
     window.open('https://fraigo.github.io/vuetify-cordova/www/', '_blank')
   },
-  ghProject () {
+  githubProject () {
     window.open('https://github.com/fraigo/vuetify-cordova', '_blank')
   }
 }
