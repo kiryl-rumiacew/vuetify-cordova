@@ -7,5 +7,6 @@ module.exports = {
   iconSize: 256,
   androidAppId: 'io.github.fraigo.vuecordova',
   author: 'Francisco Igor',
-  email: 'franciscoigor@gmail.com'
+  email: 'franciscoigor@gmail.com',
+  lang: null
 }

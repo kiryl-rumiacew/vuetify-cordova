@@ -8,9 +8,10 @@ import VueHead from 'vue-head'
 import VeeValidate from 'vee-validate'
 
 import './lib/fontawesome/css/fontawesome-all.css'
+import store from './config/store'
 
 import App from './App'
-import appConfig from './config'
+import router from './config/router'
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
@@ -29,10 +30,10 @@ if (window.location.protocol === 'file:' || window.location.port === '3000') {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router: appConfig.router,
+  router: router,
+  store,
   template: '<App/>',
   components: { App },
-  menu: appConfig.menu,
   head: {
     meta: [
       {

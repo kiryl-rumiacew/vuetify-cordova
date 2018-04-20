@@ -26,7 +26,6 @@ export default [
     placeholder: ['enter_param', 'age'],
     validation: 'required',
     required: true,
-    mask: '###',
     width: 50,
     type: 'number'
   },

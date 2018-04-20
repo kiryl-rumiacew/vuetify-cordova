@@ -1,11 +1,14 @@
 import langEs from '../data/lang.es.js'
 import langEn from '../data/lang.en.js'
+import store from '../config/store'
 
 var lang = {
-  es: langEs,
-  en: langEn,
+  langs: {
+    es: langEs,
+    en: langEn
+  },
   default: 'en',
-  selected: 'en',
+  selected: null,
   current: null,
   expr (expr, param0, param1) {
     if (!expr) return expr
@@ -20,11 +23,11 @@ var lang = {
     return result
   },
   change (lng) {
-    if (!this[lng]) {
+    if (!this.langs[lng]) {
       lng = this.default
     }
-    if (this[lng]) {
-      this.current = this[lng]
+    if (this.langs[lng]) {
+      this.current = this.langs[lng]
       this.selected = lng
     }
   }
@@ -34,6 +37,9 @@ if (!lang.current) {
   var current = 'en'
   if (navigator.language) {
     current = navigator.language.toLowerCase().split('-')[0]
+  }
+  if (store.state.lang) {
+    current = store.state.lang
   }
   lang.change(current)
 }

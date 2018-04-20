@@ -2,7 +2,7 @@
   <v-container >
       <v-layout row wrap align-center>
         <v-flex xs10 >
-          <h1 >{{lang.current.form}}</h1>
+          <h1 >{{lang.expr(title)}}</h1>
         </v-flex>
         <v-flex xs2 align-right>
           <router-link :to="{ name: 'Home', params: { }}">{{lang.current.home}}</router-link>
@@ -31,7 +31,8 @@
     props: {
       formFields: {
         type: Array
-      }
+      },
+      title: String
     },
     data () {
       return {

@@ -25,8 +25,8 @@
       }
     },
     created () {
-      this.lang.en.title = 'Vuetify Template for Cordova Projects'
-      this.lang.es.title = 'Plantilla Vuetify para Proyectos Cordova'
+      this.lang.langs.en.title = 'Vuetify Template for Cordova Projects'
+      this.lang.langs.es.title = 'Plantilla Vuetify para Proyectos Cordova'
     },
     methods: {
     }
@@ -34,11 +34,5 @@
 </script>
 
 <style scoped>
-a:link {
-  text-decoration: none;
-  color:#004;
-}
-.align-center{
-  text-align:center;
-}
+
 </style>

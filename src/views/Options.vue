@@ -26,13 +26,15 @@
         <v-flex xs12 sm6 my-3>
            <v-switch
             label="Mini-menu"
-            v-model="storage.config.menu.miniVariant"
+            v-model="store.state.menu.miniVariant"
+            @change="doSwitch('miniVariant',$event)"
             ></v-switch>
         </v-flex>
         <v-flex xs12 sm6 my-3>
            <v-switch
             label="Dark-mode"
-            v-model="storage.config.menu.darkMode"
+            v-model="store.state.menu.darkMode"
+            @change="doSwitch('darkMode',$event)"
             ></v-switch>
         </v-flex>
         
@@ -57,7 +59,7 @@
           }
         ],
         lang: window.$lang,
-        storage: window.$storage
+        store: this.$store
       }
     },
     created () {
@@ -65,6 +67,11 @@
     methods: {
       changeLang (lng) {
         this.lang.change(lng)
+        this.store.commit('update', ['lang', lng])
+      },
+      doSwitch (varname) {
+        var value = (this.store.state.menu[varname])
+        this.store.commit('update', ['menu', varname, value])
       }
     }
   }

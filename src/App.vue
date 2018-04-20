@@ -27,15 +27,12 @@
 
 <script>
   import Vue from 'vue'
-  import appConfig from './config/index'
+  import store from './config/store'
   import MenuList from './components/MenuList.vue'
   import ButtonList from './components/ButtonList.vue'
 
   import lang from './config/lang'
-
-  window.$storage = {
-    config: appConfig
-  }
+  import controller from './config/controller'
 
   window.$lang = lang
 
@@ -47,7 +44,7 @@
     data () {
       return {
         cordova: Vue.cordova,
-        config: appConfig,
+        config: store.state,
         lang: lang,
         isCordovaReady: false
       }
@@ -88,7 +85,7 @@
         navigator.app.exitApp()
       },
       menuClick (item) {
-        appConfig.controller(item)
+        controller(item)
       }
     }
   }
@@ -102,6 +99,9 @@
   .footer{ /* Apply this to v-bottom-nav if necessary. */
     margin-bottom: constant(safe-area-inset-bottom);
     margin-bottom: env(safe-area-inset-bottom);
+  }
+  a:link{
+    text-decoration: none;
   }
   
 </style>
