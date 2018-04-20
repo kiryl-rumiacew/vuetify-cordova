@@ -47,8 +47,8 @@
     data () {
       return {
         cordova: Vue.cordova,
-        config: window.$storage.config,
-        lang: window.$lang,
+        config: appConfig,
+        lang: lang,
         isCordovaReady: false
       }
     },
@@ -88,7 +88,7 @@
         navigator.app.exitApp()
       },
       menuClick (item) {
-        appConfig.menu.controller(item)
+        appConfig.controller(item)
       }
     }
   }

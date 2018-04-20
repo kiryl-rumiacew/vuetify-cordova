@@ -30,7 +30,7 @@
   }
 </script>
 
-<style scoped>
+<style >
   .menu-icon{
     width:40px;
     line-height:40px;

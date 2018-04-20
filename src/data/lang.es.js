@@ -15,6 +15,7 @@ export default
   enter_param: 'Ingresar %0%',
   options: 'Opciones',
   language: 'Idioma',
+  menu: 'Menu',
 
   _lang_name: 'Español',
   _lang_code: 'es'

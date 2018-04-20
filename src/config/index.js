@@ -16,28 +16,30 @@ var appRouter = new Router({
 var menuConfig = {
   items: menuItems,
   buttons: menuButtons,
-  controller (item, isButton) {
-    if (item.route) {
-      appRouter.push({
-        name: item.route,
-        params: item.params
-      })
-      return
-    }
-    if (actions[item.id]) {
-      actions[item.id]()
-      return
-    }
-    alert('Clicked ' + item.title)
-  },
   miniVariant: false,
   toolbar: true,
   darkMode: false,
   opened: false
 }
 
+var controller = function (item, isButton) {
+  if (item.route) {
+    appRouter.push({
+      name: item.route,
+      params: item.params
+    })
+    return
+  }
+  if (actions[item.id]) {
+    actions[item.id]()
+    return
+  }
+  console.log('Clicked ' + item.title)
+}
+
 export default {
   app: app,
   router: appRouter,
-  menu: menuConfig
+  menu: menuConfig,
+  controller: controller
 }

@@ -1,6 +1,6 @@
 <template>
   <v-container>
-      <v-layout column xs6 wrap>
+      <v-layout row wrap>
         <v-flex xs12 >
           <h2>{{lang.current.options}}</h2>
         </v-flex>
@@ -20,6 +20,9 @@
               </template>
             </v-select>
         </v-flex>
+        <v-flex xs12 >
+          <h2>{{lang.current.menu}}</h2>
+        </v-flex>
         <v-flex xs12 sm6 my-3>
            <v-switch
             label="Mini-menu"
@@ -32,6 +35,7 @@
             v-model="storage.config.menu.darkMode"
             ></v-switch>
         </v-flex>
+        
       </v-layout>
   </v-container>
 </template>

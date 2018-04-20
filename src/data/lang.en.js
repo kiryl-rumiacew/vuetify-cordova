@@ -15,6 +15,7 @@ export default
   enter_param: 'Enter %0%',
   options: 'Options',
   language: 'Language',
+  menu: 'Menu',
 
   _lang_name: 'English',
   _lang_code: 'en'
