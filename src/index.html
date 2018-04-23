@@ -30,7 +30,7 @@
     <meta name="apple-mobile-web-app-title" content="<%= htmlWebpackPlugin.options.app.title %>">
     <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>img/icons/apple-touch-icon-152x152.png">
     <!-- Add to home screen for Windows -->
-    <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %>img/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %><%= htmlWebpackPlugin.options.app.icon %>">
     <meta name="msapplication-TileColor" content="#000000">
     
     <!-- External Fonts -->
@@ -58,6 +58,14 @@
       padding-top:10vh;
     } 
     </style>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= htmlWebpackPlugin.options.app.googleAnalyticsKey %>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '<%= htmlWebpackPlugin.options.app.googleAnalyticsKey %>');
+    </script>
   </head>
   <body>
     <noscript>
