@@ -8,5 +8,6 @@ module.exports = {
   androidAppId: 'io.github.fraigo.vuecordova',
   author: 'Francisco Igor',
   email: 'franciscoigor@gmail.com',
+  googleAnalyticsKey: 'UA-114956450-1',
   lang: null
 }

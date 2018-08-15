@@ -8,10 +8,11 @@
     >
       <menu-list :items="config.menu.items" @click="menuClick" :cordova-ready="isCordovaReady" :mini-variant="config.menu.miniVariant"></menu-list>
     </v-navigation-drawer>
-    <v-toolbar fixed app v-if="config.menu.toolbar">
+    <v-toolbar app v-if="config.menu.toolbar">
       <v-btn icon  
+        v-if="config.menu.items"
         @click="config.menu.opened = !config.menu.opened" 
-       :title="lang.current.menu">
+        :title="lang.current.menu">
         <v-icon >fas fa-bars</v-icon>
       </v-btn>
       <v-toolbar-title v-text="config.app.title"></v-toolbar-title>
@@ -28,8 +29,8 @@
 <script>
   import Vue from 'vue'
   import store from './config/store'
-  import MenuList from './components/MenuList.vue'
-  import ButtonList from './components/ButtonList.vue'
+  import MenuList from './components/menu/MenuList.vue'
+  import ButtonList from './components/menu/ButtonList.vue'
 
   import lang from './config/lang'
   import controller from './config/controller'
