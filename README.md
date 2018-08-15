@@ -6,12 +6,20 @@ Web demo in https://fraigo.github.io/vuetify-cordova/www/
 
 Android demo in https://build.phonegap.com/apps/3121691/share
 
-## Build Setup
+## Initial Setup
 
 ``` bash
 # install dependencies
 npm install
 
+# add respective platforms
+cordova platform add android
+cordova platform add ios
+```
+
+## Build commands
+
+```bash
 # serve with hot reload at localhost:8080
 npm run dev
 
@@ -39,9 +47,6 @@ npm run cordova-build
 # build for production and serve the app through the browser - no hot reload.
 npm run browser
 
-# add respective platforms
-cordova platform add android
-cordova platform add ios
 
 # build for production and serve the app on an iOS device
 npm run ios
